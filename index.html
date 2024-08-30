@@ -14,9 +14,15 @@
 </head>
 
 <body>
-
+    
+    <!-- NAVBAR -->
     <nav>
-        <h1>Store</h1>
+
+        <div>
+           
+            <h1>Store</h1>
+
+        </div>
 
         <ul class="nav-links" id="nav-links">
 
@@ -30,20 +36,35 @@
 
             <!-- <i class="fa-solid fa-square-xmark"></i> -->
             <button class="icon-button" id="menu-btn"><i id="menu-icon" class="fa-solid fa-bars"></i></button>
-            <button class="icon-button"><i class="fa-solid fa-cart-shopping"></i></button>
+            <button class="icon-button" id="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
         </div>
     </nav>
-
-
-
-    <main>
+    <!-- NAVBAR END -->
 
 
 
 
-    </main>
+    <!-- Cart -->
+    
+    <div class="cart" id="cart">
+        <button class="icon-button" id="cart-close-icon"><i id="" class="fa-solid fa-square-xmark"></i></button>
+        <h1>Your Cart</h1>
 
+        
+        <div class="cart-items-container">
+            <p>No Product Selected</p>
+        </div>
+        
+        
+        <div class="details">
+            <p>Total Bill : $<span>100</span></p>
 
+           <a href="https://wa.me/923408089320?text=Hello%20dear%20Ahsan" target="_blank"> <button class="checkout" id="checkout">Checkout</button></a>
+        </div>
+        
+    </div>
+    
+    <!-- Cart END-->
 
 
     <script src="script.js"></script>
