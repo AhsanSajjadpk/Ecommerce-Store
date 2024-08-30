@@ -70,15 +70,16 @@ nav>.nav-links a {
 
 }
 
+#menu-btn{
+    display: none;
+}
+
 .icon-button:hover {
 
     background: rgb(4, 132, 171);
 
 }
 
-#menu-icon {
-    display: none;
-}
 
 @media screen and (max-width : 430px) {
 
@@ -104,7 +105,7 @@ nav>.nav-links a {
         transform: translateX(30%);
     }
 
-    #menu-icon {
+    #menu-btn {
         display: block;
     }
 

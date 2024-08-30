@@ -1,3 +1,6 @@
+
+// ----------------- Nav
+
 const menuBtn = document.getElementById("menu-btn")
 const navLink = document.getElementById("nav-links")
 const menuIcon = document.getElementById("menu-icon")
@@ -16,3 +19,6 @@ menuBtn.addEventListener('click', e => {
         menuIcon.className = "fa-solid fa-bars"
     }
 })
+
+// ----------------- endNav
+
