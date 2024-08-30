@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+}
+
+/* NavBar--------------------------------------------- */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    /* background-color: rgb(251, 202, 106); */
+    height: 80px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgb(71, 69, 100) 0%, rgb(52, 52, 151) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+nav h1{
+    color: aliceblue;
+}
+
+nav>.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+}
+
+nav>.nav-links a {
+
+    color: black;
+    text-decoration: none;
+    font-size: large;
+}
+
+.nav-icons {
+    /* width: 80px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    gap: 20px;
+    /* background-color: red; */
+}
+
+.icon-button {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(59, 96, 138);
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+
+}
+
+.icon-button:hover {
+
+    background: rgb(4, 132, 171);
+
+}
+
+#menu-icon {
+    display: none;
+}
+
+@media screen and (max-width : 430px) {
+
+    nav>.nav-links {
+        position: fixed;
+        top: 80px;
+        font-size: 32px;
+        font-weight: bold;
+        gap: 1px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        flex-direction: column;
+      
+        justify-content: flex-start;
+        background: linear-gradient(90deg, rgb(175, 172, 218) 0%, rgb(102, 102, 234) 35%, rgb(210, 227, 230) 100%);
+        transform: translateX(100%);
+        transition: all 1s ease;
+        
+    }
+    
+    nav>.nav-links.show {
+        transform: translateX(30%);
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+}

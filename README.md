@@ -1,2 +1,13 @@
 # Ecommerce-Store
-using html, CSS, JS
+
+
+## Vector Base Images
+undraw.co
+
+## ICONS
+fontawesome.com
+
+## For gradient color
+cssgradient.io
+
+
