@@ -6,9 +6,12 @@
     padding: 0;
 }
 
+html,
 body {
     font-family: "Roboto", sans-serif;
     position: relative;
+    overflow-x: hidden;
+    /* padding: 20px; */
 }
 
 /* NavBar--------------------------------------------- */
@@ -29,7 +32,7 @@ nav {
     z-index: 10;
 }
 
-nav h1{
+nav h1 {
     color: aliceblue;
 }
 
@@ -71,7 +74,7 @@ nav>.nav-links a {
 
 }
 
-#menu-btn{
+#menu-btn {
     display: none;
 }
 
@@ -94,14 +97,14 @@ nav>.nav-links a {
         width: 100%;
         height: calc(100vh - 80px);
         flex-direction: column;
-      
+
         justify-content: flex-start;
         background: linear-gradient(90deg, rgb(175, 172, 218) 0%, rgb(102, 102, 234) 35%, rgb(210, 227, 230) 100%);
         transform: translateX(100%);
         transition: all 1s ease;
-        
+
     }
-    
+
     nav>.nav-links.show {
         transform: translateX(30%);
     }
@@ -115,7 +118,7 @@ nav>.nav-links a {
 
 /* ----------------------- Cart */
 
-.cart{
+.cart {
 
     position: fixed;
     top: 80px;
@@ -133,22 +136,22 @@ nav>.nav-links a {
 }
 
 @media screen and (max-width : 430px) {
-    .cart{
+    .cart {
         width: 100%;
     }
 }
 
-.cart.show{
+.cart.show {
 
     transform: translateX(0%);
 
 }
 
-#cart-close-icon{
+#cart-close-icon {
     align-self: flex-end;
 }
 
-.cart h1{
+.cart h1 {
     padding-bottom: 10px;
     border-bottom: 2px solid blue;
     /* background-color: red; */
@@ -157,33 +160,117 @@ nav>.nav-links a {
     margin-bottom: 10px;
 }
 
-.checkout{
+.checkout {
     color: aliceblue;
     border-radius: 8px;
-    background: linear-gradient(to bottom, gray ,black);
+    background: linear-gradient(to bottom, gray, black);
     font-size: 16px;
     margin-top: 15px;
     padding: 10px 20px;
     cursor: pointer;
 }
 
-.details{
+.details {
 
-border-top: 2px solid blue;
-width: 100%;
-margin-top: 10px;
-padding-top: 10px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+    border-top: 2px solid blue;
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
 }
 
-.checkout:hover{
-    
-    background: linear-gradient(to bottom, rgb(21, 17, 17) ,rgb(59, 54, 54));
-    
+.checkout:hover {
+
+    background: linear-gradient(to bottom, rgb(21, 17, 17), rgb(59, 54, 54));
+
 }
 
-/* ----------------------- Cart  END*/ 
+/* ----------------------- Cart  END*/
+
+/* -----------------------Morale*/
+
+.morale {
+    display: flex;
+    width: 100vw;
+    gap: 10px;
+    min-height: 100vh;
+    /* background-color: red; */
+    padding-top: 80px;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+
+}
+
+.morale>div {
+    flex: 1;
+    /* background-color: aqua; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+
+.morale img {
+    width: 400px;
+}
+
+.tag-lines p {
+    text-align: center;
+
+    margin: 10px 40px;
+
+}
+
+.tag-lines h1 {
+    font-size: 65px;
+}
+
+.motto{
+    margin-top: 20px;
+    color: gray;
+}
+
+@media screen and  (max-width : 880px ) {
+    
+
+    .morale img {
+        width: 350px;
+    }
+    .tag-lines h1 {
+        font-size: 45px;
+    }
+
+}
+
+@media screen and  (max-width : 700px ) {
+    
+    .morale img {
+        width: 300px;
+    }
+
+
+   .morale{
+    flex-direction: column-reverse;
+   }
+
+   .tag-lines h1 {
+    font-size: 35px;
+}
+   .morale > div {
+    width: 100%;
+}
+
+}
+
+/* -----------------------Morale  END*/
