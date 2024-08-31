@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Store</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -36,7 +37,9 @@
 
             <!-- <i class="fa-solid fa-square-xmark"></i> -->
             <button class="icon-button" id="menu-btn"><i id="menu-icon" class="fa-solid fa-bars"></i></button>
-            <button class="icon-button" id="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+            <button class="icon-button" id="cart-btn"><i class="fa-solid fa-cart-shopping"></i>
+                <span class="notification" id="total-cart-items">1</span>
+            </button>
         </div>
     </nav>
     <!-- NAVBAR END -->
@@ -125,9 +128,25 @@
 
     <div class="product" id="product">
 
-        <h1>product</h1>
+        <h1>All Product</h1>
+
+        <div class="searchbar">
+            <input type="text" name="" id="" placeholder="Search by name.">
+
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+
+        </div>
+
+        <div class="all-products" id="all-products">
 
 
+
+          
+
+
+
+
+        </div>
 
     </div>
 
