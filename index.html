@@ -38,7 +38,7 @@
             <!-- <i class="fa-solid fa-square-xmark"></i> -->
             <button class="icon-button" id="menu-btn"><i id="menu-icon" class="fa-solid fa-bars"></i></button>
             <button class="icon-button" id="cart-btn"><i class="fa-solid fa-cart-shopping"></i>
-                <span class="notification" id="total-cart-items">1</span>
+                <span class="notification" id="total-cart-items">0</span>
             </button>
         </div>
     </nav>
@@ -54,13 +54,29 @@
         <h1>Your Cart</h1>
 
 
-        <div class="cart-items-container">
-            <p>No Product Selected</p>
+        <div class="cart-items-container" id="cart-items-container">
+
+
+            <!-- <p>No Product Selected</p> -->
+
+            <!-- <div class="cart-product-card">
+                <img src="./Assets/bag 2.jpg" alt="">
+                <div class="cart-details">
+                    <h2>Title</h2>
+                    <small>Category : bags</small>
+                    <p>price : 10000 Pkr</p>
+                </div>
+                <button data-index="" class="cart-product-close-btn"><i class="fa-solid fa-square-xmark"></i></button>
+            </div>
+          -->
+
+
+
         </div>
 
 
         <div class="details">
-            <p>Total Bill : $<span>100</span></p>
+            <p>Total Bill : $<span id="totalPrice">100</span></p>
 
             <a href="https://wa.me/923408089320?text=Hello%20dear%20Ahsan" target="_blank"> <button class="checkout"
                     id="checkout">Checkout</button></a>
@@ -140,8 +156,26 @@
         <div class="all-products" id="all-products">
 
 
+            <!-- <p>No Product Found</p> -->
+            <!-- <div class="product-card">
 
-          
+                <div class="product-img">
+                    <img src="./Assets/bag 2.jpg" alt="bag">
+                </div>
+
+                <div class="product-details">
+                    <h2>Tiitle</h2>
+                    <small>Category : bags</small>
+                    <div class="product-cart">
+                        <p>price : 10000 Pkr</p>
+                        <button id="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+            </div> -->
+
+
+
 
 
 
@@ -154,6 +188,36 @@
 
 
     <!-- Product  END-->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div>
+
+            <p>Bhai ka Store</p>
+
+        </div>
+
+        <ul class="footer-links">
+
+            <li> <a href="#morale">@Copyright  </a></li>
+           
+
+        </ul>
+
+        <div class="footer-icons">
+
+            <a href="https://www.linkedin.com/in/ahsansajjadpk/" target="_blank" class="footer-icon-link"><i class="fa-solid fa-square-xmark"></i></a>
+            <a href="https://www.github.com/ahsansajjadpk/" target="_blank" class="footer-icon-link"><i class="fa-solid fa-square-xmark"></i></a>
+            <a href="https://www.facebook.com/ahsansajjadpk/" target="_blank" class="footer-icon-link"><i class="fa-solid fa-square-xmark"></i></a>
+            <a href="https://www.instagram.com/ahsansajjadpk/" target="_blank" class="footer-icon-link"><i class="fa-solid fa-square-xmark"></i></a>
+
+            
+           
+        </div>
+    </footer>
+    <!-- Footer END -->
 
 
 

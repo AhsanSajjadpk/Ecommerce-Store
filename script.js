@@ -9,89 +9,98 @@ const cartClose = document.getElementById("cart-close-icon")
 const menuIcon = document.getElementById("menu-icon")
 const alllink = navLink.querySelectorAll("a")
 const allproductcontainer = document.getElementById("all-products")
+const addToCart = document.getElementById("add-to-cart-btn")
+const cartItemContainer = document.getElementById("cart-items-container")
+const totalCartItem = document.getElementById("total-cart-items")
+const totalPrice = document.getElementById("totalPrice")
+var total = 10;
 
 // ================================================================================
 // Data
 // ================================================================================
 
 
-let allproduct =[
-{
-    title : "Brown purse",
-    category : "Bag",
-    price : 100,
-    thumbnail : "./Assets/bag 1.jpg"
-},
-{
-    title : "Camera",
-    category : "Electronics",
-    price : 200,
-    thumbnail : "./Assets/camera 1.jpg"
-},
-{
-    title : "Lense",
-    category : "Gadgets",
-    price : 200,
-    thumbnail : "./Assets/lense 1.jpg"
-},
-{
-    title : "Brown purse",
-    category : "Bag",
-    price : 100,
-    thumbnail : "./Assets/bag 2.jpg"
-},
-{
-    title : "Camera",
-    category : "Electronics",
-    price : 200,
-    thumbnail : "./Assets/camera 2.jpg"
-},
-{
-    title : "Lense",
-    category : "Gadgets",
-    price : 200,
-    thumbnail : "./Assets/lense 2.jpg"
-},
-{
-    title : "Brown purse",
-    category : "Bag",
-    price : 100,
-    thumbnail : "./Assets/bag 3.jpg"
-},
-{
-    title : "Camera",
-    category : "Electronics",
-    price : 200,
-    thumbnail : "./Assets/camera 3.jpg"
-},
-{
-    title : "Lense",
-    category : "Gadgets",
-    price : 200,
-    thumbnail : "./Assets/lense 3.jpg"
-},
-{
-    title : "Brown purse",
-    category : "Bag",
-    price : 100,
-    thumbnail : "./Assets/bag 4.jpg"
-},
-{
-    title : "Camera",
-    category : "Electronics",
-    price : 200,
-    thumbnail : "./Assets/camera 4.jpg"
-},
-{
-    title : "Lense",
-    category : "Gadgets",
-    price : 200,
-    thumbnail : "./Assets/lense 4.jpg"
-},
+let allproduct = [
+    {
+        title: "Brown purse",
+        category: "Bag",
+        price: 100,
+        thumbnail: "./Assets/bag 1.jpg"
+    },
+    {
+        title: "Camera",
+        category: "Electronics",
+        price: 200,
+        thumbnail: "./Assets/camera 1.jpg"
+    },
+    {
+        title: "Lense",
+        category: "Gadgets",
+        price: 200,
+        thumbnail: "./Assets/lense 1.jpg"
+    },
+    {
+        title: "Brown purse",
+        category: "Bag",
+        price: 100,
+        thumbnail: "./Assets/bag 2.jpg"
+    },
+    {
+        title: "Camera",
+        category: "Electronics",
+        price: 200,
+        thumbnail: "./Assets/camera 2.jpg"
+    },
+    {
+        title: "Lense",
+        category: "Gadgets",
+        price: 200,
+        thumbnail: "./Assets/lense 2.jpg"
+    },
+    {
+        title: "Brown purse",
+        category: "Bag",
+        price: 100,
+        thumbnail: "./Assets/bag 3.jpg"
+    },
+    {
+        title: "Camera",
+        category: "Electronics",
+        price: 200,
+        thumbnail: "./Assets/camera 3.jpg"
+    },
+    {
+        title: "Lense",
+        category: "Gadgets",
+        price: 200,
+        thumbnail: "./Assets/lense 3.jpg"
+    },
+    {
+        title: "Brown purse",
+        category: "Bag",
+        price: 100,
+        thumbnail: "./Assets/bag 4.jpg"
+    },
+    {
+        title: "Camera",
+        category: "Electronics",
+        price: 200,
+        thumbnail: "./Assets/camera 4.jpg"
+    },
+    {
+        title: "Lense",
+        category: "Gadgets",
+        price: 200,
+        thumbnail: "./Assets/lense 4.jpg"
+    }
 
 
 
 
+
+]
+
+let cartProducts = [
 
 ]
 
@@ -104,88 +113,195 @@ let allproduct =[
 
 
 
-const updateAllProductDom = ()=>{
-    allproductcontainer.innerHTML = `
-    ${
-        allproduct.map((product)=>{
+const updateAllProductDom = () => {
 
-            return `<div class="product-card">
+
+    if (allproduct.length == 0) {
+
+        allproductcontainer.innerHTML = `
+          
+            <p>No Product Found</p>
+          `
+        return;
+    }
+
+
+
+    allproductcontainer.innerHTML = `
+    ${allproduct.map((product, index) => {
+
+       
+        return `<div class="product-card">
 
               <div class="product-img">
-              <img src="${product.thumbnail}" alt="bag">
+              <img src="${product.thumbnail}" alt="product-image-${index}">
               </div>
 
               <div class="product-details">
                   <h2>${product.title}</h2>
                   <small>Category : ${product.category}</small>
+                  <div class="product-cart">
                   <p>price : ${product.price} Pkr</p>
+                        
+                        <button data-index = "product-${index}" class="add-to-cart-btn-cl" id="add-to-cart-btn">Add to Cart</button>
+                    </div>
                   </div>
                   
                   </div>`
-                  
-                }).join("")
-            }
-            `
-            
-            
+
+    }).join(" ")
         }
+            `
+            // total += product.price;
+            // console.log(total)
+    const allProductCardsBtn = document.getElementsByClassName('add-to-cart-btn-cl')
+
+    Array.from(allProductCardsBtn).forEach(card => {
+        card.addEventListener('click', addToCartFun)
+    })
+
+
+
+}
+
+const addToCartFun = (e) => {
+
+    // console.log(cartProducts)
+
+    cartProducts.push(allproduct[e.target.getAttribute("data-index").split("-")[1]])
+    
+    // console.log(cartProducts)
+    // console.log((allproduct[e.target.getAttribute("data-index").split("-")[1]]))
+    
+    totalCartItem.innerHTML = cartProducts.length;
+    updateAllCartDom()
+
+}
+
+
+const updateAllCartDom = () => {
+
+
+    if (cartProducts.length == 0) {
+
+        cartItemContainer.innerHTML = `
+          
+           <p>No Product Selected</p>
+          `
+        return;
+    }
+
+
+
+    cartItemContainer.innerHTML = `
+    ${cartProducts.map((product, index) => {
+
+       
+
+        return `
         
-        
-        
-        
-        
-        // ================================================================================
-        // All Event Listener
-        // ================================================================================
-        
-        menuBtn.addEventListener('click', e => {
+        <div class="cart-product-card">
+                <img src="${product.thumbnail}" alt="cart-product-${index}">
+                <div class="cart-details">
+                    <h2>${product.title}</h2>
+                    <small>Category : ${product.category}</small>
+                    <p>price : ${product.price} Pkr</p>
+                </div>
+                <button data-index="cart-product-${index}" class="cart-product-close-btn"><i class="fa-solid fa-square-xmark"></i></button>
+            </div>
             
-            if (!navLink.classList.contains('show')) {
-                
-                navLink.classList.add('show');
-                menuIcon.className = "fa-solid fa-square-xmark"
-            }
-            
-            else {
-                
-                navLink.classList.remove('show')
-                menuIcon.className = "fa-solid fa-bars"
-            }
-        })
+             `
+
+    }).join(" ")
+        }
+            `
+    const allCartProductCloseBtn = document.getElementsByClassName('cart-product-close-btn')
+
+    console.log(allCartProductCloseBtn)
+    
+    Array.from(allCartProductCloseBtn).forEach(btn => {
+        btn.addEventListener('click', cartProductClose)
+        // console.log(btn)
         
-        alllink.forEach(link => {
-            
-            
-            link.addEventListener('click', ()=>{
-                navLink.classList.remove('show')
-                menuIcon.className = "fa-solid fa-bars"
-                
-            })
-            
-        })
-        
-        // ----------------- endNav
-        
-        
-        
-        
-        // ----------------- Cart
-        cartBtn.addEventListener('click', e => {
-            
-            if (!cart.classList.contains('show')) {
-                
-                cart.classList.add('show');
-                
-            }
-            
-            else {
-                
-                cart.classList.remove('show')
-                
-            }
+    })
+
+
+
+}
+
+let cartProductClose = (e) => {
+
+
+
+    console.log(parseInt(e.target.getAttribute("data-index").split("-")[2]))
+
+    cartProducts = cartProducts.filter((product, index) => index !== parseInt(e.target.getAttribute("data-index").split("-")[2]))
+    
+   
+    totalCartItem.innerHTML = cartProducts.length;
+    // totalPrice.innerHTML = total
+
+    updateAllCartDom()
+
+}
+
+
+
+
+// ================================================================================
+// All Event Listener
+// ================================================================================
+
+menuBtn.addEventListener('click', e => {
+
+    if (!navLink.classList.contains('show')) {
+
+        navLink.classList.add('show');
+        menuIcon.className = "fa-solid fa-square-xmark"
+    }
+
+    else {
+
+        navLink.classList.remove('show')
+        menuIcon.className = "fa-solid fa-bars"
+    }
 })
 
-cartClose.addEventListener('click',()=>{
+alllink.forEach(link => {
+
+
+    link.addEventListener('click', () => {
+        navLink.classList.remove('show')
+        menuIcon.className = "fa-solid fa-bars"
+
+    })
+
+})
+
+// ----------------- endNav
+
+
+
+
+// ----------------- Cart
+cartBtn.addEventListener('click', e => {
+
+    if (!cart.classList.contains('show')) {
+
+        cart.classList.add('show');
+        // navLink.classList.remove('show')
+
+
+    }
+
+    else {
+
+        cart.classList.remove('show')
+
+    }
+})
+
+cartClose.addEventListener('click', () => {
     cart.classList.remove('show')
 })
 // ----------------- Cart END
@@ -197,5 +313,6 @@ cartClose.addEventListener('click',()=>{
 // INIT
 // ================================================================================
 updateAllProductDom()
+updateAllCartDom()
 
 

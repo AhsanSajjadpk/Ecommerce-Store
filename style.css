@@ -68,9 +68,10 @@ nav>.nav-links a {
 }
 
 .icon-button {
-    width: 35px;
-    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
     display: flex;
+    font-size: 20px;
     justify-content: center;
     align-items: center;
     border: 1px solid rgb(59, 96, 138);
@@ -96,6 +97,7 @@ nav>.nav-links a {
 
 #menu-btn {
     display: none;
+    
 }
 
 .icon-button:hover {
@@ -143,15 +145,17 @@ nav>.nav-links a {
     position: fixed;
     top: 80px;
     right: 0;
-    width: 300px;
+    width: 380px;
     background: linear-gradient(90deg, rgb(175, 172, 218) 0%, rgb(102, 102, 234) 35%, rgb(210, 227, 230) 100%);
     height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 35px;
+    padding: 10px 20px;
     transform: translateX(100%);
     transition: all 1s ease;
+    z-index: 9;
+    overflow-y: scroll;
 
 }
 
@@ -169,6 +173,7 @@ nav>.nav-links a {
 
 #cart-close-icon {
     align-self: flex-end;
+    
 }
 
 .cart h1 {
@@ -207,6 +212,58 @@ nav>.nav-links a {
 
     background: linear-gradient(to bottom, rgb(21, 17, 17), rgb(59, 54, 54));
 
+}
+.cart-items-container{
+    margin: 14px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cart-product-card{
+    width: 100%;
+    height: 100px;
+    /* padding: 5px 40px; */
+    display: flex;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: rgb(251, 244, 244);
+    justify-content: space-between;
+}
+
+.cart-product-card img{
+    height: 100%;
+    width: 40%;
+    object-fit: cover;
+}
+.cart-product-card button{
+    height: 100%;
+    font-size: 18px;
+    width: 20px;
+    border: none;
+    background-color: red;
+    color: black;
+    cursor: pointer;
+   
+}
+.cart-product-card button:hover {
+    background-color: rgb(240, 90, 90);
+}
+.cart-product-card button:active {
+    background-color: black;
+    color: white;
+}
+
+.cart-product-card .cart-details{
+    padding: 10px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  
+}
+.cart-product-card .cart-details p{
+    font-size: 15px;
+  
 }
 
 /* ----------------------- Cart  END*/
@@ -471,7 +528,7 @@ nav>.nav-links a {
     width: 100%;
     min-height: 200px;
     background-color: rgb(175, 214, 237);
-    padding: 50px;
+    padding: 50px 20px;
 
     display: flex;
     justify-content: center;
@@ -532,6 +589,33 @@ transform: scale(0.95);
 .product-details h2 {
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+.product-cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: red; */
+    /* padding: 0px 6px; */
+    padding: 3px 0px;
+}
+#add-to-cart-btn{
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    width: 100px;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+#add-to-cart-btn:hover{
+
+    background-color: rgb(34, 165, 217);
+   
+}
+#add-to-cart-btn:active{
+
+    background-color: rgb(0, 0, 0);
+    color: white;
+   
+}
 
 
 @media screen and (max-width : 1110px) {
@@ -557,11 +641,64 @@ transform: scale(0.95);
 }
 
 
-
-
-
-
-
-
-
 /* -----------------------Product End*/
+
+
+/* -----------------------Footer*/
+
+.footer{
+    width: 100vw;
+    /* background-color: red; */
+    background: linear-gradient(90deg, rgb(71, 69, 100) 10%, rgb(52, 52, 151) 75%, rgba(0, 212, 255, 1) 100%);
+
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 60px;
+}
+.footer-links li {
+    font-size: 16px;
+    list-style: none;
+    /* text-decoration: none; */
+    color: gray;
+}
+.footer-links li a{
+    
+    text-decoration: none;
+    color: gray;
+}
+.footer-icons{
+    display: flex;
+    padding: 0px 10px;
+    gap: 5px;
+    /* background-color: white; */
+    /* height: 20px; */
+    /* width: 80px; */
+    justify-content: space-between;
+}
+
+.footer-icon-link{
+    font-size: 20px; 
+     color: white; 
+     transition: all 1s ease;
+     border-radius: 50%;
+}
+.footer-icon-link i{
+}
+.footer-icon-link:hover{
+    /* font-size: 14px;  */
+     color: blue; 
+     transform: translateY(-5px);
+}
+
+@media screen and (max-width : 450px) {
+
+    .footer{
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+
+
+/* -----------------------Footer End*/
