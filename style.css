@@ -682,11 +682,10 @@ transform: scale(0.95);
      transition: all 1s ease;
      border-radius: 50%;
 }
-.footer-icon-link i{
-}
+
 .footer-icon-link:hover{
     /* font-size: 14px;  */
-     color: blue; 
+     color: black; 
      transform: translateY(-5px);
 }
 
