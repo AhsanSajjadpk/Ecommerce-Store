@@ -50,6 +50,9 @@ nav {
 
 nav h1 {
     color: aliceblue;
+    font-size: 32px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow:  2px 0px 30px white;
 }
 
 nav>.nav-links {
@@ -491,7 +494,7 @@ nav>.nav-links a:hover {
 
 .product {
     width: 100vw;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     /* background-color: var(--border-color); */
     padding-top: 80px;
     /* margin-top: 80px; */
@@ -553,7 +556,7 @@ nav>.nav-links a:hover {
 
 .all-products {
     width: 100%;
-    min-height: 200px;
+    /* min-height: 200px; */
     background-color: rgb(229, 229, 238);
     padding: 50px 20px;
 

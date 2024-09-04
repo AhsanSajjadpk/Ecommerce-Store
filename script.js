@@ -14,6 +14,8 @@ const cartItemContainer = document.getElementById("cart-items-container")
 const totalCartItem = document.getElementById("total-cart-items")
 const totalBill = document.getElementById("totalPrice")
 const year = document.getElementById("year")
+const checkout = document.getElementById("checkout")
+const search = document.getElementById("search")
 
 // ================================================================================
 // Year
@@ -111,6 +113,9 @@ let cartProducts = [
 
 ]
 
+let filterProducts = [
+
+]
 
 
 
@@ -122,11 +127,11 @@ let cartProducts = [
 const updateAllProductDom = () => {
 
 
-    if (allproduct.length == 0) {
+    if (filterProducts.length == 0) {
 
         allproductcontainer.innerHTML = `
           
-            <p>No Product Found</p>
+            <p>No Product Found ..</p>
           `
         return;
     }
@@ -134,9 +139,9 @@ const updateAllProductDom = () => {
 
 
     allproductcontainer.innerHTML = `
-    ${allproduct.map((product, index) => {
+    ${filterProducts.map((product, index) => {
 
-       
+
         return `<div class="product-card">
 
               <div class="product-img">
@@ -158,8 +163,7 @@ const updateAllProductDom = () => {
     }).join(" ")
         }
             `
-            // total += product.price;
-            // console.log(total)
+
     const allProductCardsBtn = document.getElementsByClassName('add-to-cart-btn-cl')
 
     Array.from(allProductCardsBtn).forEach(card => {
@@ -175,10 +179,10 @@ const addToCartFun = (e) => {
     // console.log(cartProducts)
 
     cartProducts.push(allproduct[e.target.getAttribute("data-index").split("-")[1]])
-    
+
     // console.log(cartProducts)
     // console.log((allproduct[e.target.getAttribute("data-index").split("-")[1]]))
-    
+
     totalCartItem.innerHTML = cartProducts.length;
     updateAllCartDom()
 
@@ -203,7 +207,7 @@ const updateAllCartDom = () => {
     cartItemContainer.innerHTML = `
     ${cartProducts.map((product, index) => {
 
-       
+
 
         return `
         
@@ -225,16 +229,16 @@ const updateAllCartDom = () => {
     const allCartProductCloseBtn = document.getElementsByClassName('cart-product-close-btn')
 
     console.log(allCartProductCloseBtn)
-    
+
     Array.from(allCartProductCloseBtn).forEach(btn => {
         btn.addEventListener('click', cartProductClose)
         // console.log(btn)
-        
+
     })
 
     let total = 0
 
-    cartProducts.forEach((product)=>{
+    cartProducts.forEach((product) => {
         total += product.price
     })
 
@@ -250,8 +254,8 @@ let cartProductClose = (e) => {
     console.log(parseInt(e.target.getAttribute("data-index").split("-")[2]))
 
     cartProducts = cartProducts.filter((product, index) => index !== parseInt(e.target.getAttribute("data-index").split("-")[2]))
-    
-   
+
+
     totalCartItem.innerHTML = cartProducts.length;
     // totalPrice.innerHTML = total
 
@@ -259,6 +263,23 @@ let cartProductClose = (e) => {
 
 }
 
+// to filter product -- search functionality
+
+const filterProductByText = (text = "")=>{
+
+
+    text  = text.toLowerCase()
+    console.log(text)
+
+    filterProducts = allproduct.filter((product, index) => {
+        if (product.title.toLowerCase().includes(text) || product.category.toLowerCase().includes(text) ) {
+            return product
+        }
+    })
+    console.log(filterProducts)
+    updateAllProductDom()
+
+}
 
 
 
@@ -318,15 +339,30 @@ cartBtn.addEventListener('click', e => {
 cartClose.addEventListener('click', () => {
     cart.classList.remove('show')
 })
+
+
+
+checkout.addEventListener('click', (e) => {
+
+    cartProducts = [];
+    console.log(cartProducts)
+    updateAllCartDom();
+    totalCartItem.innerHTML = 0;
+
+})
 // ----------------- Cart END
 
+// ----------------- search
+
+search.addEventListener('input', e => filterProductByText(e.target.value) )
 
 // ----------------- Product
 
 // ================================================================================
 // INIT
 // ================================================================================
-updateAllProductDom()
+filterProductByText()
 updateAllCartDom()
+updateAllProductDom()
 
 
