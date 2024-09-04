@@ -12,8 +12,18 @@ const allproductcontainer = document.getElementById("all-products")
 const addToCart = document.getElementById("add-to-cart-btn")
 const cartItemContainer = document.getElementById("cart-items-container")
 const totalCartItem = document.getElementById("total-cart-items")
-const totalPrice = document.getElementById("totalPrice")
-var total = 10;
+const totalBill = document.getElementById("totalPrice")
+const year = document.getElementById("year")
+
+// ================================================================================
+// Year
+// ================================================================================
+
+let date = new Date();
+let n = date.getFullYear();
+year.textContent = n;
+
+
 
 // ================================================================================
 // Data
@@ -24,78 +34,75 @@ let allproduct = [
     {
         title: "Brown purse",
         category: "Bag",
-        price: 100,
+        price: 2300,
         thumbnail: "./Assets/bag 1.jpg"
     },
     {
         title: "Camera",
         category: "Electronics",
-        price: 200,
+        price: 20000,
         thumbnail: "./Assets/camera 1.jpg"
     },
     {
         title: "Lense",
         category: "Gadgets",
-        price: 200,
+        price: 1200,
         thumbnail: "./Assets/lense 1.jpg"
     },
     {
         title: "Brown purse",
         category: "Bag",
-        price: 100,
+        price: 2200,
         thumbnail: "./Assets/bag 2.jpg"
     },
     {
         title: "Camera",
         category: "Electronics",
-        price: 200,
+        price: 23000,
         thumbnail: "./Assets/camera 2.jpg"
     },
     {
         title: "Lense",
         category: "Gadgets",
-        price: 200,
+        price: 6100,
         thumbnail: "./Assets/lense 2.jpg"
     },
     {
         title: "Brown purse",
         category: "Bag",
-        price: 100,
+        price: 1100,
         thumbnail: "./Assets/bag 3.jpg"
     },
     {
         title: "Camera",
         category: "Electronics",
-        price: 200,
+        price: 10000,
         thumbnail: "./Assets/camera 3.jpg"
     },
     {
         title: "Lense",
         category: "Gadgets",
-        price: 200,
+        price: 2300,
         thumbnail: "./Assets/lense 3.jpg"
     },
     {
         title: "Brown purse",
         category: "Bag",
-        price: 100,
+        price: 2000,
         thumbnail: "./Assets/bag 4.jpg"
     },
     {
         title: "Camera",
         category: "Electronics",
-        price: 200,
+        price: 13000,
         thumbnail: "./Assets/camera 4.jpg"
     },
     {
         title: "Lense",
         category: "Gadgets",
-        price: 200,
+        price: 1950,
         thumbnail: "./Assets/lense 4.jpg"
     }
-
-
-
 
 
 ]
@@ -110,7 +117,6 @@ let cartProducts = [
 // ================================================================================
 // Functions
 // ================================================================================
-
 
 
 const updateAllProductDom = () => {
@@ -134,7 +140,7 @@ const updateAllProductDom = () => {
         return `<div class="product-card">
 
               <div class="product-img">
-              <img src="${product.thumbnail}" alt="product-image-${index}">
+              <img loading="lazy" src="${product.thumbnail}" alt="product-image-${index}">
               </div>
 
               <div class="product-details">
@@ -184,6 +190,7 @@ const updateAllCartDom = () => {
 
     if (cartProducts.length == 0) {
 
+        totalBill.innerHTML = "0"
         cartItemContainer.innerHTML = `
           
            <p>No Product Selected</p>
@@ -225,7 +232,14 @@ const updateAllCartDom = () => {
         
     })
 
+    let total = 0
 
+    cartProducts.forEach((product)=>{
+        total += product.price
+    })
+
+
+    totalBill.innerHTML = total;
 
 }
 
